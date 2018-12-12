@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  party_affiliation: MyString
+  phone_number: MyString
+  contacted: false
+  campaign: one
+
+two:
+  name: MyString
+  address: MyString
+  party_affiliation: MyString
+  phone_number: MyString
+  contacted: false
+  campaign: two
