@@ -7,6 +7,7 @@ Types::VoterRecordType = GraphQL::ObjectType.define do
 	field :party_affiliation, !types.String
 	field :phone_number, !types.String
 	field :contacted, !types.Boolean
-	field :campaign, -> {Types::CampaignType}
+	field :campaign, -> {!Types::CampaignType}
+	field :survey_results, -> { !types[Types::SurveyResultType]}
 
 end

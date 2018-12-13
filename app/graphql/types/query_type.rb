@@ -13,4 +13,10 @@ Types::QueryType = GraphQL::ObjectType.define do
 			VoterRecord.all
 		}
 	end
+
+	field :allSurveyResults, !types[Types::SurveyResultType] do 
+		resolve -> (obj, args, ctx) {
+			SurveyResult.all
+		}
+	end
 end
