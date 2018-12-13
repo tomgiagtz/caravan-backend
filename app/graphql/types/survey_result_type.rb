@@ -7,4 +7,7 @@ Types::SurveyResultType = GraphQL::ObjectType.define do
 	field :supports_candidate, types.Boolean
 	field :level_of_support, types.Int
 	field :notes, types.String
+
+	field :campaign, -> {!Types::CampaignType}
+	field :voter_record, -> {!Types::VoterRecordType}
 end

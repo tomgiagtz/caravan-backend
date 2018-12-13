@@ -7,5 +7,6 @@ Types::CampaignType = GraphQL::ObjectType.define do
 	field :candidate_party, !types.String
 	field :script, !types.String
 	field :voter_records, -> { !types[Types::VoterRecordType] }
+	field :survey_results, -> { !types[Types::SurveyResultType]}
 	
 end
