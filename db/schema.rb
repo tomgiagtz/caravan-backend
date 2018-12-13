@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_201110) do
+ActiveRecord::Schema.define(version: 2018_12_12_202905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 2018_12_12_201110) do
     t.text "script"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "survey_results", force: :cascade do |t|
+    t.boolean "answered"
+    t.boolean "knows_candidate"
+    t.boolean "supports_candidate"
+    t.integer "level_of_support"
+    t.string "notes"
+    t.bigint "voter_record_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["voter_record_id"], name: "index_survey_results_on_voter_record_id"
   end
 
   create_table "voter_records", force: :cascade do |t|
@@ -36,5 +48,6 @@ ActiveRecord::Schema.define(version: 2018_12_12_201110) do
     t.index ["campaign_id"], name: "index_voter_records_on_campaign_id"
   end
 
+  add_foreign_key "survey_results", "voter_records"
   add_foreign_key "voter_records", "campaigns"
 end

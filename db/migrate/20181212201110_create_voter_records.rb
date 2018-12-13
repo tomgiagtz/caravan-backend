@@ -6,7 +6,7 @@ class CreateVoterRecords < ActiveRecord::Migration[5.2]
       t.string :party_affiliation
       t.string :phone_number
       t.boolean :contacted
-      t.references :campaign, foreign_key: true
+	  t.references :campaign, foreign_key: true
 
       t.timestamps
     end

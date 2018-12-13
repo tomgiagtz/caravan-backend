@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  answered: false
+  knows_candidate: false
+  supports_candidate: false
+  level_of_support: 1
+  notes: MyString
+
+two:
+  answered: false
+  knows_candidate: false
+  supports_candidate: false
+  level_of_support: 1
+  notes: MyString
