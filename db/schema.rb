@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_202905) do
+ActiveRecord::Schema.define(version: 2018_12_17_211402) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "campaigns", force: :cascade do |t|
+  create_table "campaigns", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "candidate_name"
     t.string "candidate_party"
@@ -24,30 +25,26 @@ ActiveRecord::Schema.define(version: 2018_12_12_202905) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "survey_results", force: :cascade do |t|
+  create_table "survey_results", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.boolean "answered"
     t.boolean "knows_candidate"
     t.boolean "supports_candidate"
     t.integer "level_of_support"
     t.string "notes"
-    t.bigint "voter_record_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["voter_record_id"], name: "index_survey_results_on_voter_record_id"
+    t.uuid "voter_record_id"
   end
 
-  create_table "voter_records", force: :cascade do |t|
+  create_table "voter_records", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "party_affiliation"
     t.string "phone_number"
     t.boolean "contacted"
-    t.bigint "campaign_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["campaign_id"], name: "index_voter_records_on_campaign_id"
+    t.uuid "campaign_id"
   end
 
-  add_foreign_key "survey_results", "voter_records"
-  add_foreign_key "voter_records", "campaigns"
 end

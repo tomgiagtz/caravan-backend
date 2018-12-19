@@ -8,6 +8,14 @@ Types::QueryType = GraphQL::ObjectType.define do
 		}
 	end
 
+	field :campaign do 
+		type Types::CampaignType
+		argument :id, types.ID
+		resolve -> (obj, args, ctx) {
+			Campaign.find(args[:id])
+		}
+	end
+
 	field :allVoterRecords, !types[Types::VoterRecordType] do 
 		resolve -> (obj, args, ctx) {
 			VoterRecord.all
