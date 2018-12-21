@@ -1,4 +1,5 @@
 Types::MutationType = GraphQL::ObjectType.define do
+
   name "Mutation"
 
   field :createCampaign, function: Resolvers::CreateCampaign.new
@@ -9,5 +10,8 @@ Types::MutationType = GraphQL::ObjectType.define do
   field :updateVoterRecord, function: Resolvers::UpdateVoterRecord.new
   
   field :createSurveyResult, function: Resolvers::CreateSurveyResult.new
+
+  field :createUser, function: Resolvers::CreateUser.new
+#   field :updateUserCampaign, function: Resolvers::UpdateUserCampaign.new
   
 end
