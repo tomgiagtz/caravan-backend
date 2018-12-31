@@ -6,7 +6,7 @@ class Resolvers::CreateUser < GraphQL::Function
 	end
   
 	argument :name, !types.String
-	argument :campaign_id, !types.ID
+	argument :campaign_id, types.ID
 	argument :authProvider, !AuthProviderInput
   
 	type Types::UserType

@@ -27,7 +27,7 @@ class Resolvers::SignInUser < GraphQL::Function
 	  token = crypt.encrypt_and_sign("user-id:#{ user.id }")
 
 		#TODO FIX THIS
-	  ctx[:session][:token] = token
+	  # _ctx[:session][:token] = token
   
 	  OpenStruct.new({
 		user: user,
