@@ -6,6 +6,7 @@ class Resolvers::CreateUser < GraphQL::Function
 	end
   
 	argument :name, !types.String
+	argument :campaign_id, !types.ID
 	argument :authProvider, !AuthProviderInput
   
 	type Types::UserType
@@ -14,7 +15,8 @@ class Resolvers::CreateUser < GraphQL::Function
 	  User.create!(
 		name: args[:name],
 		email: args[:authProvider][:email][:email],
-		password: args[:authProvider][:email][:password]
+		password: args[:authProvider][:email][:password],
+		campaign_id: args[:campaign_id]
 	  )
 	end
 end
