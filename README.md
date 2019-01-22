@@ -5,4 +5,4 @@ This rails backend makes use of the rails graphql gem to implement a single endp
 To run, clone and execute these command from within the cloned directory.
 1. `bundle install`
 2. `rails db:migrate`
-3. `rails s`
+3. `rails s -p 3001`
