@@ -3,6 +3,7 @@
 This rails backend makes use of the rails graphql gem to implement a single endpoint style api, allowing for single requests that contain data from multiple resources. 
 
 To run, clone this repo and the Caravan frontend (github.com/tomgiagtz/caravan)
+
 Then, execute these command from within the cloned directory.
 1. `bundle install`
 2. `rails db:migrate`
