@@ -1,24 +1,8 @@
-# README
+# Caravan Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This rails backend makes use of the rails graphql gem to implement a single endpoint style api, allowing for single requests that contain data from multiple resources. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run, clone and execute these command from within the cloned directory.
+1. `bundle install`
+2. `rails db:migrate`
+3. `rails s`
